@@ -1,0 +1,24 @@
+.splash{
+  background: url("../img/homebackgrund.jpg") no-repeat center center fixed;
+  background-size: cover;
+}
+.branding{
+  
+  width: 50%;
+  max-width: 200px;
+  margin: 0 auto;
+  text-align: center;
+  margin-top: 20%;
+}
+
+.error{
+  color:red;
+}
+
+input.ng-invalid-email{
+  color:red;
+}
+
+input.ng-valid-email{
+  color: green;
+}

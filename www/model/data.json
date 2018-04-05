@@ -1,0 +1,31 @@
+[
+    {
+
+        "name": "Singelrum",
+        "img": "HotelSingel.jpg",
+        "bio": "Det är ett simpelt singel rum allt är lätt tiljängligt, en säng, ett skriv bord, ett skåp för kläder och andra värde saker, ett förnster med galler som är för din säkerhet och en toa. Max 1 person.",
+        "pris": "200",
+        "vuxna": "1",
+        "barn": "0"
+
+    },
+    {
+
+        "name": "Dubbelrum",
+        "img": "HotelDubbel.png",
+        "bio": "Deta är det bra alternativ för de par som vill ha en kännsla av gammla tider. Rummet har två sänger, fönster, två bord, två garderåber för kläder och andra vädre saker, två fönster med OK utsikt och en toa. Max 2 personer",
+        "pris": "500",
+        "vuxna": "2",
+        "barn": "1"
+    },
+    {
+
+        "name": "Familjerum",
+        "img": "HotelFamilj.png",
+        "bio": "Deta familje rum är för den familj som vill ha kvlitets tid, två dubbel sängar, en soffa, en TV, en shutväg som kan sepparera rumet i två olika delar, ett fönster, tre garderåber för kläder och värde saker och en toa. Max 5 personer.",
+        "pris": "900",
+        "vuxna": "5",
+        "barn": "4"
+    }
+
+]

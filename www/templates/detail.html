@@ -1,0 +1,106 @@
+<ion-view view-title="Details">
+
+  <ion-content ng-controller="MyFormCtrl">
+    <ion-list class="list">
+      <ion-item class="item-text-wrap" ng-repeat="item in room | filter: {name:whichroom}">
+
+        <img ng-src="img/{{item.img}}" width="100%" height="auto">
+        <h2>{{item.name}}</h2>
+        <h3 ng-init="data.pris=item.pris" ng-model = "data.pris">{{item.pris}}kr/dag</h3>
+        
+        <h3>{{item.reknown}}</h3>
+        <p>{{item.bio}}</p>
+
+    </ion-list>
+    
+    <div class="list align-center">
+      
+      <form name="MyForm"  ng-submit="submit()" class="padding">
+        
+        <label class="item rime-input item-stacked-label">
+          <span class="input-label">Förnamn</span>
+          <input type="text" name="Name" placeholder="Ange ditt förnamn"
+           ng-model="data.namn" required>
+
+        </label>
+
+        <label class="item rime-input item-stacked-label">
+          <span class="input-label">Efternamn</span>
+          <input type="text" name="Ename" placeholder="Ange ditt efternamn"
+           ng-model="data.Enamn" required>
+
+        </label>
+
+        <label class="item rime-input item-stacked-label">
+          <span class="input-label">E-post</span>
+          <input type="email" name="Email" placeholder="Ange ditt email"
+           ng-model="data.email" required>
+
+          <div ng-show="MyForm.Email.$error.email" class="error">
+            Ange en giltig e-postadress tack!
+          </div>
+        </label>
+        <label class="item rime-input item-stacked-label">
+          <span class="input-label">Telefon nummer</span>
+          <input type="number" name="Telefon" placeholder="Ange ditt telefon nummer"
+          ng-model="data.telefon" required>
+          
+          <div ng-show="MyForm.Telefon.$error.number" class="error">
+            Ange en giltigt telefon nummer tack!
+          </div>
+        </label>
+        
+        <label class="item rime-input item-stacked-label">
+          <ion-item ng-repeat="item in room | filter: {name:whichroom}">
+          <span class="input-label">Antal vuxna</span>
+          <input type="number" name="Vuxna" placeholder="Ange antal personer"
+          min="1" max="{{item.vuxna}}" ng-model="data.vuxna" required>
+          
+          <div ng-show="MyForm.Vuxna.$error.number" class="error">
+            Ange rätt antal personer!
+          </div>
+        </label>
+        
+        <label class="item rime-input item-stacked-label">
+          <ion-item ng-repeat="item in room | filter: {name:whichroom}">
+          <span class="input-label">Antal barn</span>
+          <input type="number" name="Barn" placeholder="Ange antal barn"
+          min="0" max="{{item.vuxna - data.vuxna}}" ng-model="data.barn" required>
+          
+          <div ng-show="MyForm.Barn.$error.number" class="error">
+            Ange rätt antal barn!
+          </div>
+        </label>
+        
+        <label class="item rime-input item-stacked-label">
+          <span class="input-label">Start datum</span>
+          <input type="date" name="sdate" ng-model="data.sdate" min="{{today}}" ng-blur="getbookdate()" required>
+          <!--arrival-->
+        </label>
+        
+        <label class="item rime-input item-stacked-label">
+          <span class="input-label">Slut datum</span>
+          <input type="date" name="edate" ng-model="data.edate" min="{{bookdate}}" ng-blur="confirm()"  required>
+          <!--departure-->
+          <div ng-show="MyForm.Edate.$error.date" class="error">
+            Ange en ett datum som är över start datumet!
+          </div>
+        </label>
+        
+        
+        <ion-item ng-repeat="item in room | filter: {name:whichroom}">
+          
+          <label class="item item-input item-stacked-label" ng-model="data.days" ng-init="data.days=diffD">{{diffD}}</label>
+            <label class="item item-input item-stacked-label" ng-model="data.totPrice" ng-init="data.totPrice=totalPrice">
+              {{(item.pris-0) * (diffDate(data.sdate, data.edate)-0)}}.00 kr</label>
+              
+              <input type="submit" ng-disabled="MyForm.$invalid" value="Boka nu" class="button button-block button-calm">
+              
+              <h1>test</h1>
+              <div>{{data || json}}</div>
+            </form>
+          </div>
+        </ion-list>
+        </ion-content>
+
+</ion-view>
